@@ -25,7 +25,6 @@ public class dologinServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("dopost");
 
 		CustomerDao customerdao = new CustomerDao();
 		ManagerDao managerdao = new ManagerDao();

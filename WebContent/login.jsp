@@ -1,147 +1,105 @@
-﻿<!DOCTYPE html>
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE html>	
 <html>
-  <head>
-    <title>登录</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <link href="resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet"/>
-    <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
-    <link href="data/styles.css" type="text/css" rel="stylesheet"/>
-    <link href="files/登录/styles.css" type="text/css" rel="stylesheet"/>
-    <script src="resources/scripts/jquery-1.7.1.min.js"></script>
-    <script src="resources/scripts/jquery-ui-1.8.10.custom.min.js"></script>
-    <script src="resources/scripts/axure/axQuery.js"></script>
-    <script src="resources/scripts/axure/globals.js"></script>
-    <script src="resources/scripts/axutils.js"></script>
-    <script src="resources/scripts/axure/annotation.js"></script>
-    <script src="resources/scripts/axure/axQuery.std.js"></script>
-    <script src="resources/scripts/axure/doc.js"></script>
-    <script src="data/document.js"></script>
-    <script src="resources/scripts/messagecenter.js"></script>
-    <script src="resources/scripts/axure/events.js"></script>
-    <script src="resources/scripts/axure/recording.js"></script>
-    <script src="resources/scripts/axure/action.js"></script>
-    <script src="resources/scripts/axure/expr.js"></script>
-    <script src="resources/scripts/axure/geometry.js"></script>
-    <script src="resources/scripts/axure/flyout.js"></script>
-    <script src="resources/scripts/axure/ie.js"></script>
-    <script src="resources/scripts/axure/model.js"></script>
-    <script src="resources/scripts/axure/repeater.js"></script>
-    <script src="resources/scripts/axure/sto.js"></script>
-    <script src="resources/scripts/axure/utils.temp.js"></script>
-    <script src="resources/scripts/axure/variables.js"></script>
-    <script src="resources/scripts/axure/drag.js"></script>
-    <script src="resources/scripts/axure/move.js"></script>
-    <script src="resources/scripts/axure/visibility.js"></script>
-    <script src="resources/scripts/axure/style.js"></script>
-    <script src="resources/scripts/axure/adaptive.js"></script>
-    <script src="resources/scripts/axure/tree.js"></script>
-    <script src="resources/scripts/axure/init.temp.js"></script>
-    <script src="files/登录/data.js"></script>
-    <script src="resources/scripts/axure/legacy.js"></script>
-    <script src="resources/scripts/axure/viewer.js"></script>
-    <script src="resources/scripts/axure/math.js"></script>
-    <script type="text/javascript">
-      $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
-      $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
-      $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
+<head>
+<base href="./">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+<meta name="author" content="Łukasz Holeczek">
+<meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
+<title>CoreUI Pro Bootstrap Admin Template</title>
+
+<link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
+<link href="vendors/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
+<link href="vendors/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+<link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="vendors/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+
+<link href="css/style.css" rel="stylesheet">
+<link href="vendors/pace-progress/css/pace.min.css" rel="stylesheet">
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-118965717-1', 'auto');
+    ga('send', 'pageview');
     </script>
-  </head>
-  <body>
-    <div id="base" class="">
-
-      <!-- Unnamed (Group) -->
-      <div id="u0" class="ax_default" data-width="1440" data-height="750">
-
-        <!-- Unnamed (Image) -->
-        <div id="u1" class="ax_default image">
-          <img id="u1_img" class="img " src="images/登录/u1.jpg"/>
-          <!-- Unnamed () -->
-          <div id="u2" class="text" style="display:none; visibility: hidden">
-            <p><span></span></p>
-          </div>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script>
+</head>
+  <body class="app flex-row align-items-center  pace-done">
+ <div class="pace  pace-inactive">
+  <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+   <div class="pace-progress-inner">
+   </div>
+  </div>
+  <div class="pace-activity"></div>
+ </div>
+ <div class="container">
+  <div class="row justify-content-center">
+   <div class="col-md-8">
+    <div class="card-group">
+     <div class="card p-4">
+      <div class="card-body">
+       <h1>Login</h1>
+       <p class="text-muted">Sign In to your account</p>
+       <form action="servlet/dologinServlet" method="post">
+        <div class="input-group mb-3">
+         <input class="form-control" type="text" placeholder="Username">
         </div>
-
-        <!-- Unnamed (Group) -->
-        <div id="u3" class="ax_default" data-width="368" data-height="214">
-
-          <!-- Unnamed (Group) -->
-          <div id="u4" class="ax_default" data-width="368" data-height="126">
-
-            <!-- Unnamed (Group) -->
-            <div id="u5" class="ax_default" data-width="368" data-height="62">
-
-              <!-- Unnamed (Rectangle) -->
-              <div id="u6" class="ax_default shape">
-                <div id="u6_div" class=""></div>
-                <!-- Unnamed () -->
-                <div id="u7" class="text">
-                  <p><span>账户</span></p>
-                </div>
-              </div>
-
-              <!-- Unnamed (Rectangle) -->
-              <div id="u8" class="ax_default iconfont">
-                <img id="u8_img" class="img " src="images/登录/u8.png"/>
-                <!-- Unnamed () -->
-                <div id="u9" class="text">
-                  <p><span></span></p>
-                </div>
-              </div>
-
-              <!-- Unnamed (Rectangle) -->
-              <div id="u10" class="ax_default box_2">
-                <div id="u10_div" class=""></div>
-                <!-- Unnamed () -->
-                <div id="u11" class="text">
-                  <p><span>24</span></p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Unnamed (Group) -->
-            <div id="u12" class="ax_default" data-width="368" data-height="63">
-
-              <!-- Unnamed (Rectangle) -->
-              <div id="u13" class="ax_default shape">
-                <div id="u13_div" class=""></div>
-                <!-- Unnamed () -->
-                <div id="u14" class="text">
-                  <p><span>密码</span></p>
-                </div>
-              </div>
-
-              <!-- Unnamed (Rectangle) -->
-              <div id="u15" class="ax_default paragraph">
-                <div id="u15_div" class=""></div>
-                <!-- Unnamed () -->
-                <div id="u16" class="text">
-                  <p><span></span></p>
-                </div>
-              </div>
-
-              <!-- Unnamed (Rectangle) -->
-              <div id="u17" class="ax_default box_2">
-                <div id="u17_div" class=""></div>
-                <!-- Unnamed () -->
-                <div id="u18" class="text">
-                  <p><span>24</span></p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Unnamed (Rectangle) -->
-          <div id="u19" class="ax_default shape">
-            <div id="u19_div" class=""></div>
-            <!-- Unnamed () -->
-            <div id="u20" class="text">
-              <p><span>登 录</span></p>
-            </div>
-          </div>
+        <div class="input-group mb-4">
+         <input class="form-control" type="password" placeholder="Password">
         </div>
+        <div class="row">
+         <div class="col-6"> 
+          <button class="btn btn-primary px-4" type="submit">Login</button>
+         </div>
+        </div>
+       </form>
       </div>
+     </div>
+     <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
+      <div class="card-body text-center">
+       <div>
+        <h2>Sign up</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <button class="btn btn-primary active mt-3" type="button">Register Now!</button>
+       </div>
+      </div>
+     </div>
     </div>
-  </body>
+   </div>
+  </div>
+ </div>
+
+ <script src="vendors/jquery/js/jquery.min.js"></script>
+ <script src="vendors/popper.js/js/popper.min.js"></script>
+ <script src="vendors/bootstrap/js/bootstrap.min.js"></script>
+ <script src="vendors/pace-progress/js/pace.min.js"></script>
+ <script src="vendors/perfect-scrollbar/js/perfect-scrollbar.min.js"></script>
+ <script src="vendors/@coreui/coreui-pro/js/coreui.min.js"></script>
+ <script>
+    $('#ui-view').ajaxLoad();
+    $(document).ajaxComplete(function() {
+      Pace.restart()
+    });
+ </script>
+</body>
 </html>
