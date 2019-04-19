@@ -131,9 +131,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  </header>
  
   <div class="app-body">
-  <div class="sidebar">
-   <nav class="sidebar-nav ps ps--active-y">
-    <ul class="nav">
+  <div class="main_left">
+   <div class="sidebar">
+    <nav class="sidebar-nav ps ps--active-y">
+     <ul class="nav">
       <li class="nav-item nav-dropdown">
        <a class="nav-link nav-dropdown-toggle" href="#">
         <i class="nav-icon icon-puzzle" ></i>物联网卡管理</a>
@@ -227,7 +228,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <i class="nav-icon icon-puzzle"></i>系统管理</a>
        <ul class="nav-dropdown-items">
         <li class="nav-item">
-         <a class="nav-link" href="base/breadcrumb.html">
+         <a class="nav-link" target="iframe_a" href="users_manager.jsp">
           <i class="nav-icon icon-puzzle"></i>  角色管理</a>
         </li>
         <li class="nav-item">
@@ -268,8 +269,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </nav>
    </div>
   </div>
-    <iframe src="login.jsp" name="iframe_a" frameborder="1"marginheight="0" marginwidth="0" frameborder="0" scrolling="no" width="100%" height="100%" src="">
-    </iframe>
+  </div>
+  <div class="main">
+   <iframe src="login.jsp" name="iframe_a" frameborder="1"marginheight="0" marginwidth="0" frameborder="0" scrolling="no" width="100%" height="100%" src="">
+   </iframe>
+  </div>
 <script>
     $('#ui-view').ajaxLoad();
     $(document).ajaxComplete(function() {
