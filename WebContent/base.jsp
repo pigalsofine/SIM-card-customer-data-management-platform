@@ -228,7 +228,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <i class="nav-icon icon-puzzle"></i>系统管理</a>
        <ul class="nav-dropdown-items">
         <li class="nav-item">
-         <a class="nav-link" target="iframe_a" href="users_manager.jsp">
+         <a class="nav-link" target="iframe_a" href="manager/users_manager.jsp">
           <i class="nav-icon icon-puzzle"></i>  角色管理</a>
         </li>
         <li class="nav-item">
@@ -271,7 +271,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </div>
   </div>
   <div class="main">
-   <iframe src="login.jsp" name="iframe_a" frameborder="1"marginheight="0" marginwidth="0" frameborder="0" scrolling="no" width="100%" height="100%" src="">
+   <iframe src="login.jsp" name="iframe_a" frameborder="1" marginheight="0" marginwidth="0" frameborder="0"  width="100%" height="100%" src="">
    </iframe>
   </div>
 <script>
