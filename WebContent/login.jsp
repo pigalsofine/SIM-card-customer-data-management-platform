@@ -16,15 +16,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
 <title>CoreUI Pro Bootstrap Admin Template</title>
 
-<link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
-<link href="vendors/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
-<link href="vendors/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
-<link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-<link href="vendors/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
-
-<link href="css/style.css" rel="stylesheet">
-<link href="vendors/pace-progress/css/pace.min.css" rel="stylesheet">
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">>
+<script async="" src="https://w	ww.google-analytics.com/analytics.js"></script>
 <script>
     (function(i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
@@ -41,7 +34,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </script>
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script>
 </head>
   <body class="app flex-row align-items-center  pace-done">
@@ -89,12 +81,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </div>
  </div>
 
- <script src="vendors/jquery/js/jquery.min.js"></script>
- <script src="vendors/popper.js/js/popper.min.js"></script>
- <script src="vendors/bootstrap/js/bootstrap.min.js"></script>
- <script src="vendors/pace-progress/js/pace.min.js"></script>
- <script src="vendors/perfect-scrollbar/js/perfect-scrollbar.min.js"></script>
- <script src="vendors/@coreui/coreui-pro/js/coreui.min.js"></script>
  <script>
     $('#ui-view').ajaxLoad();
     $(document).ajaxComplete(function() {
