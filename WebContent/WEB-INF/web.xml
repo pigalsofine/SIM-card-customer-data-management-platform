@@ -30,13 +30,22 @@
   	<url-pattern>/servlet/manager_roleServlet</url-pattern>
   </servlet-mapping>
   
-    <servlet>
+  <servlet>
   	<servlet-name>companyservlet</servlet-name>
   	<servlet-class>servlet.companyServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>companyservlet</servlet-name>
   	<url-pattern>/servlet/companyServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>passageServlet</servlet-name>
+  	<servlet-class>servlet.passageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>passageServlet</servlet-name>
+  	<url-pattern>/servlet/passageServlet</url-pattern>
   </servlet-mapping>
   
 </web-app>

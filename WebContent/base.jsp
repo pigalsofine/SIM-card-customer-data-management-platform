@@ -14,7 +14,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <title>CoreUI Pro Bootstrap Admin Template</title>
  <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
  <link rel="stylesheet" href="https://unpkg.com/@coreui/icons/css/coreui-icons.min.css">
+ <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+ 
 </head>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
 	<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script>
@@ -143,15 +147,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <i class="nav-icon icon-puzzle"></i>  二级用户管理</a>
         </li>
         <li class="nav-item">
-         <a class="nav-link" href="base/breadcrumb.html">
-          <i class="nav-icon icon-puzzle"></i>  企业管理</a>
-        </li>
-        <li class="nav-item">
-         <a class="nav-link" href="base/breadcrumb.html">
+         <a class="nav-link" target="iframe_a" href="servlet/passageServlet?operator=tele">
           <i class="nav-icon icon-puzzle"></i>  电信通道管理</a>
         </li>
         <li class="nav-item">
-         <a class="nav-link" href="base/breadcrumb.html">
+         <a class="nav-link" target="iframe_a" href="servlet/passageServlet?operator=mobile">
           <i class="nav-icon icon-puzzle"></i>  移动通道管理</a>
         </li>
         <li class="nav-item">
