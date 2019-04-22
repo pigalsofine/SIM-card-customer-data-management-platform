@@ -10,6 +10,5 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h>a</h>
 </body>
 </html>

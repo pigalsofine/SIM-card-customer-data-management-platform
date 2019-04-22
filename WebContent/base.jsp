@@ -51,7 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <i class="icons cui-home" > 物联网卡管理</i></a>
        <ul class="nav-dropdown-items">
         <li class="nav-item">
-         <a class="nav-link" target="iframe_a" href="login.jsp">
+         <a class="nav-link" target="iframe_a" href="index.jsp">
           <i class="nav-icon icon-puzzle"></i>  物联网卡入库</a>
         </li>
         <li class="nav-item">
@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <i class="nav-icon icon-puzzle"></i>  客户管理</a>
         </li>
         <li class="nav-item">
-         <a class="nav-link" href="base/breadcrumb.html">
+         <a class="nav-link" target="iframe_a" href="index.jsp"">
           <i class="nav-icon icon-puzzle"></i>  物联网卡销售</a>
         </li>
         <li class="nav-item">
@@ -117,19 +117,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <i class="icons cui-tablet"></i> 佣金管理</a>
        <ul class="nav-dropdown-items">
         <li class="nav-item">
-         <a class="nav-link" href="base/breadcrumb.html">
+         <a class="nav-link" target="iframe_a" href="index.jsp"">
           <i class="nav-icon icon-puzzle"></i>  套餐返佣</a>
         </li>
         <li class="nav-item">
-         <a class="nav-link" href="base/breadcrumb.html">
+         <a class="nav-link" target="iframe_a" href="index.jsp"">
           <i class="nav-icon icon-puzzle"></i>  一次性返佣</a>
         </li>
         <li class="nav-item">
-         <a class="nav-link" href="base/breadcrumb.html">
+         <a class="nav-link" target="iframe_a" href="index.jsp"">
           <i class="nav-icon icon-puzzle"></i>  提现申请</a>
         </li>
         <li class="nav-item">
-         <a class="nav-link" href="base/breadcrumb.html">
+         <a class="nav-link" target="iframe_a" href="index.jsp"">
           <i class="nav-icon icon-puzzle"></i>  账号返佣</a>
         </li>
        </ul>
@@ -174,7 +174,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </div>
   </div>
   <div class="main">
-   <iframe src="login.jsp" name="iframe_a" frameborder="1" marginheight="0" marginwidth="0" frameborder="0"  width="100%" height="100%" src="">
+   <iframe src="index.jsp" name="iframe_a" frameborder="1" marginheight="0" marginwidth="0" frameborder="0"  width="100%" height="100%" src="">
    </iframe>
   </div>
 <script>
