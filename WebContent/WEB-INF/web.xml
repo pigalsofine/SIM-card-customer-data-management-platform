@@ -101,4 +101,13 @@
   	<servlet-name>rateServlet</servlet-name>
   	<url-pattern>/servlet/rateServlet</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>cardServlet</servlet-name>
+  	<servlet-class>servlet.cardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>cardServlet</servlet-name>
+  	<url-pattern>/servlet/cardServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

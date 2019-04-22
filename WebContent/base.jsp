@@ -55,11 +55,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <i class="nav-icon icon-puzzle"></i>  物联网卡入库</a>
         </li>
         <li class="nav-item">
-         <a class="nav-link" href="base/breadcrumb.html">
+         <a class="nav-link" target="iframe_a" href="servlet/cardServlet?operator=tele">
           <i class="nav-icon icon-puzzle"></i>  电信物联网卡管理</a>
         </li>
         <li class="nav-item">
-         <a class="nav-link" href="base/breadcrumb.html">
+         <a class="nav-link" target="iframe_a" href="servlet/cardServlet?operator=mobile">
           <i class="nav-icon icon-puzzle"></i>  移动物联网卡管理</a>
         </li>
         <li class="nav-item">
