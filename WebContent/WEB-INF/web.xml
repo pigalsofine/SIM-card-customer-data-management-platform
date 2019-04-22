@@ -137,4 +137,13 @@
   	<servlet-name>orderServlet</servlet-name>
   	<url-pattern>/servlet/orderServlet</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>contractServlet</servlet-name>
+  	<servlet-class>servlet.contractServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>contractServlet</servlet-name>
+  	<url-pattern>/servlet/contractServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
