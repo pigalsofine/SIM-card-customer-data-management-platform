@@ -92,4 +92,13 @@
   	<servlet-name>packetSelflServlet</servlet-name>
   	<url-pattern>/servlet/packetSelflServlet</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>rateServlet</servlet-name>
+  	<servlet-class>servlet.rateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>rateServlet</servlet-name>
+  	<url-pattern>/servlet/rateServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
