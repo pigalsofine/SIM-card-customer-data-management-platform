@@ -103,7 +103,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <i class="nav-icon icon-puzzle"></i>  移动原始套餐管理</a>
         </li>
         <li class="nav-item">
-         <a class="nav-link" href="base/breadcrumb.html">
+         <a class="nav-link" target="iframe_a" href="servlet/packetSelflServlet">
           <i class="nav-icon icon-puzzle"></i>  自营套餐管理</a>
         </li>
         <li class="nav-item">

@@ -83,4 +83,13 @@
   	<servlet-name>packetOriginalServlet</servlet-name>
   	<url-pattern>/servlet/packetOriginalServlet</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>packetSelflServlet</servlet-name>
+  	<servlet-class>servlet.packetSelflServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>packetSelflServlet</servlet-name>
+  	<url-pattern>/servlet/packetSelflServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
