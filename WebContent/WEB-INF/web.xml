@@ -74,4 +74,13 @@
   	<servlet-name>logServlet</servlet-name>
   	<url-pattern>/servlet/logServlet</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>packetOriginalServlet</servlet-name>
+  	<servlet-class>servlet.packetOriginalServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>packetOriginalServlet</servlet-name>
+  	<url-pattern>/servlet/packetOriginalServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

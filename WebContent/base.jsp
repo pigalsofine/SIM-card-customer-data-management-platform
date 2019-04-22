@@ -95,11 +95,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <i class="icons cui-puzzle"></i> 套餐管理</a>
        <ul class="nav-dropdown-items">
         <li class="nav-item">
-         <a class="nav-link" href="base/breadcrumb.html">
+         <a class="nav-link" target="iframe_a" href="servlet/packetOriginalServlet?operator=tele">
           <i class="nav-icon icon-puzzle"></i>  电信原始套餐管理</a>
         </li>
         <li class="nav-item">
-         <a class="nav-link" href="base/breadcrumb.html">
+         <a class="nav-link" target="iframe_a" href="servlet/packetOriginalServlet?operator=mobile">
           <i class="nav-icon icon-puzzle"></i>  移动原始套餐管理</a>
         </li>
         <li class="nav-item">

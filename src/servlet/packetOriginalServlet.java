@@ -13,14 +13,18 @@ import javax.servlet.http.HttpSession;
 
 import dao.CompanyDao;
 import dao.CustomerDao;
+import dao.LogDao;
 import dao.ManagerDao;
+import dao.PacketOriginalDao;
 import dao.PassageDao;
+import dao.TagDao;
 import entity.Company;
+import entity.Log;
+import entity.PacketOriginal;
 import entity.Passage;
+import entity.Tag;
 
-
-
-public class passageServlet extends HttpServlet {
+public class packetOriginalServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -36,21 +40,19 @@ public class passageServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8"); 
 		response.setCharacterEncoding("utf-8"); 
 
-		PassageDao passagedao = new PassageDao();
-		ArrayList<Passage> passage_list = passagedao.getArrayList_passage();
-		System.out.println(passage_list.size());
-		
-		request.setAttribute("passage_list", passage_list);
+		PacketOriginalDao packet_originaldao = new PacketOriginalDao();
+		ArrayList<PacketOriginal> packet_original_list = packet_originaldao.getArrayList_packet_original();
+		System.out.println(packet_original_list.size());
+		request.setAttribute("packet_original_list", packet_original_list);
 		
 		String operatorString = request.getParameter("operator");
 
 		if ( operatorString.equals("tele") ) {
-			request.getRequestDispatcher("/manager/passage-tele.jsp").forward(request,response);//请求重定
+			request.getRequestDispatcher("/manager/packetOriginalTele.jsp").forward(request,response);//请求重定
 		} else if ( operatorString.equals("mobile") ) {
-			request.getRequestDispatcher("/manager/passage-mobile.jsp").forward(request,response);//请求重定
+			request.getRequestDispatcher("/manager/packetOriginalMobile.jsp").forward(request,response);//请求重定
 		}
-		
-		//判断是否有登陆表单post进来
+
 		return;
          	
 	}
