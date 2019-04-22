@@ -10,8 +10,7 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
-    <servlet>
-  	<!-- 用户登陆验证的servlet -->
+  <servlet>
   	<servlet-name>dologinservlet</servlet-name>
   	<servlet-class>servlet.dologinServlet</servlet-class>
   </servlet>
@@ -20,6 +19,18 @@
   <servlet-mapping>
   	<servlet-name>dologinservlet</servlet-name>
   	<url-pattern>/servlet/dologinServlet</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>manager_roleservlet</servlet-name>
+  	<servlet-class>servlet.manager_roleServlet</servlet-class>
+  </servlet>
+  
+  
+  <servlet-mapping>
+  	<servlet-name>manager_roleservlet</servlet-name>
+  	<url-pattern>/servlet/manager_roleServlet</url-pattern>
   </servlet-mapping>
   
 </web-app>

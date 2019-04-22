@@ -2,34 +2,25 @@ package util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class DBHelper {
-   
-	private static final String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"; //数据库驱动
-	//连接数据库的URL地址
-	private static final String url="jdbc:sqlserver://localhost:1433;database=EDUC"; 
-	private static final String username="sa";//数据库的用户名
-	private static final String password="1";//数据库的密码
-    
-	private static Connection conn = null;
-	//静态代码块加载驱动
-	static{
-		try {
-			//加载驱动程序
-			Class.forName(driver);
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		}
-	}
 	
 	public static Connection getConnection() throws Exception{
-		if (conn==null) {
-			//获得数据库的连接
-			conn = DriverManager.getConnection(url,username,password);
-			return conn;
+		Connection con=null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			String  user="root";
+			String  pwd="123456~asd";
+			String url="jdbc:mysql://localhost:3306/sim-manager?serverTimezone=GMT";
+			con=DriverManager.getConnection(url,user,pwd);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		return conn;
+		return con;
+		
 	}
 	
 	public static void main(String[] args) {
@@ -37,6 +28,12 @@ public class DBHelper {
 			Connection conn = DBHelper.getConnection();
 			if (conn!=null) {
 				System.out.println("数据库连接正常");
+				Statement stmt = conn.createStatement();
+				ResultSet rs = (ResultSet) stmt.executeQuery("select * from sim-manager");
+				                                                   //table_1 为你在MySQL数据库中创建的-表的名称
+				while(rs.next()){
+					System.out.println(rs.getString("iduser_name"));        //取MySQL数据库中table_1表中的ID
+				}
 			}else {
 				System.out.println("数据库连接异常");
 			}
@@ -44,7 +41,5 @@ public class DBHelper {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		
-		
 	}
 }

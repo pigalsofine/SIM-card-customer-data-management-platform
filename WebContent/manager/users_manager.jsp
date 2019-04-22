@@ -3,6 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@page import="entity.ManagerRole"%>
 
 <!DOCTYPE html>	
 <html>
@@ -79,45 +80,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <table class="table table-responsive-sm table-bordered table-striped table-sm">
            <thead>
             <tr>
-             <th>Username</th>
+             <th>RoleName</th>
              <th>Date registered</th>
-             <th>Role</th>
-             <th>Status</th>
+             <th>Permition</th>
+             <th>Desprition</th>
             </tr>
            </thead>
            <tbody>
+           <%
+          		ArrayList<ManagerRole> managerRole_list = (ArrayList<ManagerRole>) request.getAttribute("managerRole_list");
+           		System.out.println(managerRole_list.size());
+           		for (int i = 0; i < managerRole_list.size(); i++){
+           			System.out.println(managerRole_list.get(i).getName());
+           %>
             <tr>
-             <td>Vishnu Serghei</td>
-             <td>2012/01/01</td>
-             <td>Member</td>
-             <td>
-              <span class="badge badge-success">Active</span>
-             </td>
+             <td><%= managerRole_list.get(i).getName() %></td>
+             <td><%= managerRole_list.get(i).getAdd_time() %></td>
+             <td><%= managerRole_list.get(i).getPermission() %></td>
+             <td><%= managerRole_list.get(i).getDesprition() %></td>
             </tr>
+            <% } %>
            </tbody>
           </table>
-          <nav>
-           <ul class="pagination">
-            <li class="page-item">
-             <a class="page-link" href="#">Prev</a>
-            </li>
-            <li class="page-item active">
-             <a class="page-link" href="#">1</a>
-            </li>
-            <li class="page-item">
-             <a class="page-link" href="#">2</a>
-            </li>
-            <li class="page-item">
-             <a class="page-link" href="#">3</a>
-            </li>
-            <li class="page-item">
-             <a class="page-link" href="#">4</a>
-            </li>
-            <li class="page-item">
-             <a class="page-link" href="#">Next</a>
-            </li>
-           </ul>
-          </nav>
          </div>
         </div>
        </div>

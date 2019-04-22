@@ -135,7 +135,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <i class="icons cui-layers"></i> 系统管理</a>
        <ul class="nav-dropdown-items">
         <li class="nav-item">
-         <a class="nav-link" target="iframe_a" href="manager/users_manager.jsp">
+         <a class="nav-link" target="iframe_a" href="servlet/manager_roleServlet">
           <i class="nav-icon icon-puzzle"></i>  角色管理</a>
         </li>
         <li class="nav-item">
