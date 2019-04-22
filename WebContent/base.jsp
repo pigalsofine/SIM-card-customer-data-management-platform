@@ -155,11 +155,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <i class="nav-icon icon-puzzle"></i>  移动通道管理</a>
         </li>
         <li class="nav-item">
-         <a class="nav-link" href="base/breadcrumb.html">
-          <i class="nav-icon icon-puzzle"></i>  标签类型管理</a>
-        </li>
-        <li class="nav-item">
-         <a class="nav-link" href="base/breadcrumb.html">
+         <a class="nav-link" target="iframe_a" href="servlet/tagServlet">
           <i class="nav-icon icon-puzzle"></i>  标签管理</a>
         </li>
         <li class="nav-item">

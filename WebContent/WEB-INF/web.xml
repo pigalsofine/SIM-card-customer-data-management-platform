@@ -48,4 +48,12 @@
   	<url-pattern>/servlet/passageServlet</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>tagServlet</servlet-name>
+  	<servlet-class>servlet.tagServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>tagServlet</servlet-name>
+  	<url-pattern>/servlet/tagServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
