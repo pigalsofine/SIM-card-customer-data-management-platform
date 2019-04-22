@@ -128,4 +128,13 @@
   	<servlet-name>customerServlet</servlet-name>
   	<url-pattern>/servlet/customerServlet</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>orderServlet</servlet-name>
+  	<servlet-class>servlet.orderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>orderServlet</servlet-name>
+  	<url-pattern>/servlet/orderServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
