@@ -96,8 +96,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            <%
           		ArrayList<Company> company_list = (ArrayList<Company>) request.getAttribute("company_list");
 		   		for(int i = 0; i < company_list.size(); i++) {
-					System.out.print(company_list.get(i).getNameString());
-					System.out.print(company_list.get(i).getSalesman_nameString());
            %>
             <tr>
              <td><%= company_list.get(i).getNameString() %></td>

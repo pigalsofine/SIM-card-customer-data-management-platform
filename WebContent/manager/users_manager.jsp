@@ -91,7 +91,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           		ArrayList<ManagerRole> managerRole_list = (ArrayList<ManagerRole>) request.getAttribute("managerRole_list");
            		System.out.println(managerRole_list.size());
            		for (int i = 0; i < managerRole_list.size(); i++){
-           			System.out.println(managerRole_list.get(i).getName());
            %>
             <tr>
              <td><%= managerRole_list.get(i).getName() %></td>
