@@ -159,7 +159,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <i class="nav-icon icon-puzzle"></i>  标签管理</a>
         </li>
         <li class="nav-item">
-         <a class="nav-link" target="iframe_a" href="servlet/reportServlet">
+         <a class="nav-link" target="iframe_a" href="servlet/logServlet">
           <i class="nav-icon icon-puzzle"></i>  操作日志</a>
         </li>
         <li class="nav-item">
