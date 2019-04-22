@@ -74,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <div class="col-lg-12">
         <div class="card">
          <div class="card-header">
-          <i class="fa fa-align-justify"></i> 电信通道管理
+          <i class="fa fa-align-justify"></i> 电信原始套餐
          </div>
          <div class="card-body">
           <table class="table table-responsive-sm table-striped">
