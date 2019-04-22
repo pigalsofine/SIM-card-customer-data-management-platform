@@ -56,4 +56,13 @@
   	<servlet-name>tagServlet</servlet-name>
   	<url-pattern>/servlet/tagServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>reportServlet</servlet-name>
+  	<servlet-class>servlet.reportServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>reportServlet</servlet-name>
+  	<url-pattern>/servlet/reportServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
