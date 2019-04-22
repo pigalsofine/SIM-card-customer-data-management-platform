@@ -21,16 +21,22 @@
   	<url-pattern>/servlet/dologinServlet</url-pattern>
   </servlet-mapping>
   
-  
   <servlet>
   	<servlet-name>manager_roleservlet</servlet-name>
   	<servlet-class>servlet.manager_roleServlet</servlet-class>
   </servlet>
-  
-  
   <servlet-mapping>
   	<servlet-name>manager_roleservlet</servlet-name>
   	<url-pattern>/servlet/manager_roleServlet</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  	<servlet-name>companyservlet</servlet-name>
+  	<servlet-class>servlet.companyServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>companyservlet</servlet-name>
+  	<url-pattern>/servlet/companyServlet</url-pattern>
   </servlet-mapping>
   
 </web-app>
