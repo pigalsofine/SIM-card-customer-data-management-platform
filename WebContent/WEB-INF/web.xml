@@ -110,4 +110,22 @@
   	<servlet-name>cardServlet</servlet-name>
   	<url-pattern>/servlet/cardServlet</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>diagnosisServlet</servlet-name>
+  	<servlet-class>servlet.diagnosisServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>diagnosisServlet</servlet-name>
+  	<url-pattern>/servlet/diagnosisServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>customerServlet</servlet-name>
+  	<servlet-class>servlet.customerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>customerServlet</servlet-name>
+  	<url-pattern>/servlet/customerServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

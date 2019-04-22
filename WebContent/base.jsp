@@ -63,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <i class="nav-icon icon-puzzle"></i>  移动物联网卡管理</a>
         </li>
         <li class="nav-item">
-         <a class="nav-link" href="base/breadcrumb.html">
+         <a class="nav-link" target="iframe_a" href="servlet/diagnosisServlet">
           <i class="nav-icon icon-puzzle"></i>  诊断</a>
         </li>
        </ul>
@@ -73,7 +73,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <i class="icons  cui-layers"></i> 销售管理</a>
        <ul class="nav-dropdown-items">
         <li class="nav-item">
-         <a class="nav-link" href="base/breadcrumb.html">
+         <a class="nav-link" target="iframe_a" href="servlet/customerServlet">
           <i class="nav-icon icon-puzzle"></i>  客户管理</a>
         </li>
         <li class="nav-item">
