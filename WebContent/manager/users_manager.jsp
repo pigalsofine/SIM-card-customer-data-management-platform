@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <i class="fa fa-align-justify"></i> Combined All Table
          </div>
          <div class="card-body">
-          <table class="table table-responsive-sm table-bordered table-striped table-sm">
+          <table class="table table-responsive-sm table-striped">
            <thead>
             <tr>
              <th>RoleName</th>
