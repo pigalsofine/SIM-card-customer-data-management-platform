@@ -21,6 +21,7 @@ import dao.ManagerDao;
 import dao.PassageDao;
 import dao.RateDao;
 import dao.TagDao;
+import dao.UserDao;
 import entity.Card;
 import entity.Company;
 import entity.Customer;
@@ -28,6 +29,7 @@ import entity.Log;
 import entity.Passage;
 import entity.Rate;
 import entity.Tag;
+import entity.User;
 
 
 
@@ -46,9 +48,23 @@ public class customerServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8"); 
 		response.setCharacterEncoding("utf-8"); 
-
+		HttpSession session = request.getSession(true);
+		
 		CustomerDao customerDao = new CustomerDao();
 		ArrayList<Customer> customer_list = customerDao.getArrayList_customer();
+
+		String form = request.getParameter("form");
+		if (form != null ) {
+			if (form.equals("change_password")) {
+				String idString = request.getParameter("customer_id");
+				String passwordString = request.getParameter("password");
+				
+				UserDao userdao = new UserDao();
+				String nameString = customerDao.get_customer_by_id(idString).getNameString();
+				Boolean ret = userdao.set_user_password(nameString, passwordString);
+				
+			}
+		}
 		
 		CardDao carddao = new CardDao();
 		ArrayList<Card> card_list = carddao.getArrayList_card();
@@ -64,10 +80,8 @@ public class customerServlet extends HttpServlet {
 			}
 		}
 
-		request.setAttribute("map_C_C", map_C_C);
-
-		request.getRequestDispatcher("/manager/customer.jsp").forward(request,response);//«Î«Û÷ÿ∂®
-
+		session.setAttribute("map_C_C", map_C_C);
+		response.sendRedirect("/SIM-card-customer-data-management-platform/customer.jsp");
 		return;
          	
 	}

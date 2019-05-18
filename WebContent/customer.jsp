@@ -7,26 +7,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!DOCTYPE html>	
 <html>
-<head>
-<base href="./">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
 <meta name="author" content="Łukasz Holeczek">
 <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-<title>CoreUI Pro Bootstrap Admin Template</title>
 
-<link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
-<link href="vendors/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
-<link href="vendors/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
-<link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-<link href="vendors/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+<link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" />
+<link href="http://cdn.bootcss.com/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="https://cdn.bootcss.com/flat-ui/2.3.0/css/flat-ui.min.css" rel="stylesheet">
 
-<link href="css/style.css" rel="stylesheet">
-<link href="vendors/pace-progress/css/pace.min.css" rel="stylesheet">
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+
 <script>
+
+	function updatModal(id){/*点击修改按钮，给模态框加载信息并且弹出模态框*/
+		$('#customer_id').val(id);
+		$('#myModal').modal('show')
+	}
+
+	function set_card_status(start_ip_id, status){/*点击修改按钮，给模态框加载信息并且弹出模态框*/
+		var form = document.getElementById("start_ip_form");
+		$('#start_ip_id').val(start_ip_id);
+		$('#status_id').val(status)
+		form.submit();
+	}
+
     (function(i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
       i[r] = i[r] || function() {
@@ -40,29 +46,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     ga('create', 'UA-118965717-1', 'auto');
     ga('send', 'pageview');
     </script>
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+   <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
 </head>
 <body class="" width="100%" height="100%" marginwidth="0" marginheight="0">
  <div style="width:100%;position:absolute z-index:999; top:0;">
   <ol class="breadcrumb">
-   <li class="breadcrumb-item">Home</li>
-   <li class="breadcrumb-item">
-    <a href="#">Admin</a>
-   </li>
-   <li class="breadcrumb-item active">Dashboard</li>
    <li class="breadcrumb-menu d-md-down-none">
     <div class="btn-group" role="group" aria-label="Button group">
-     <a class="btn" href="#">
-      <i class="icon-speech"></i>
-     </a>
-     <a class="btn" href="./">
-      <i class="icon-graph"></i> &nbsp;Dashboard</a>
-     <a class="btn" href="#">
-      <i class="icon-settings"></i> &nbsp;Settings
-     </a>
     </div>
    </li>
   </ol>
@@ -96,19 +89,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    				
 
    		
-           		Map<Customer, Card> map_C_C = (Map<Customer, Card>) request.getAttribute("map_C_C");
+           		Map<Customer, Card> map_C_C = (Map<Customer, Card>) session.getAttribute("map_C_C");
 				for (Map.Entry<Customer, Card> entry : map_C_C.entrySet()) {
    			%>
    			<tr>
    			 <th><%= entry.getKey().getAccountString() %></th>
-   			 <th><%= entry.getValue().getNumberString() %></th>
+   			 <th><%= entry.getKey().getNameString() %></th>
    			 <th>高</th>
    			 <th><%= entry.getKey().getPhoneString() %></th>
    			 <th><%= entry.getValue().getCard_idString() %></th>
    			 <th><%= entry.getValue().getRechargeFloat() %></th>
    			 <th><%= entry.getValue().getFlow_totalFloat() %></th>
    			 <th><%= entry.getValue().getFlow_usedFloat() %></th>
-   			 <th><a href="#"> 操作 </a></th>
+   			 <th>
+			  <div class="dropdown">
+               <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">操作
+                <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation">
+                 <a role="menuitem" tabindex="-1" href="#"> 详情</a>
+                </li>
+                <li role="presentation">
+                 <a role="menuitem" tabindex="-1"  onclick="updatModal(<%=entry.getKey().getIdInteger()%>)"> 重置密码</a>
+                </li>
+                <li role="presentation">
+                 <a role="menuitem" tabindex="-1"  onclick="updatModal()"> 设置标签</a>
+                </li>
+               </ul>
+              </div>
+			  </div>
+			 </th>
    			<%
         
             	}
@@ -124,6 +135,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
    </div>
   </div>
+ </div>
+  <div class="container">
+    <!--  定义模态框触发器，此处为按钮触发  -->
+  <form method="post" action="servlet/customerServlet" class="form-horizontal" role="form" id="myForm" onsubmit="return ">
+   <div class="modal fade" id="myModal"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+     <div class="modal-content">
+      <div class="btn-info modal-header">
+       <button type="button" class="close" data-dismiss="modal">&times;</button>
+       <h4>修改密码</h4>
+      </div>
+      <div class="modal-body">
+       <form class="form-horizontal" role="form">
+        <div class="form-group">
+         <label for="uname" class="col-sm-2 control-label">密码</label>
+         <input type="hidden" id="form" name="form" class="form-control well" value="change_password"/>
+         <input type="hidden" id="customer_id" name="customer_id" class="form-control well"/>
+         <div class="col-sm-9">
+          <input type="text" id="password" name="password" class="form-control well" placeholder="请输入密码"/>
+         </div>
+        </div>
+       </form>
+      </div>
+      <div class="modal-footer">
+       <button type="submit" class="btn btn-info">确定</button>
+       <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      </div>
+     </div><!-- /.modal-content -->
+    </div>
+   </div> <!-- /.modal -->
+  </form>
  </div>
 </body>
 </html>

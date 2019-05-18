@@ -6,6 +6,13 @@ public class Customer {
 	private String nameString;
 	private String accountString;
 	private String phoneString;
+	private Integer idInteger;
+	public Integer getIdInteger() {
+		return idInteger;
+	}
+	public void setIdInteger(Integer idInteger) {
+		this.idInteger = idInteger;
+	}
 	public String getNameString() {
 		return nameString;
 	}
