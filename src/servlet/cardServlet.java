@@ -50,13 +50,16 @@ public class cardServlet extends HttpServlet {
 			if (form.equals("change_ip")) {
 				String ipString = request.getParameter("ip");
 				String idString = request.getParameter("card_id");
-				System.out.println("llalalalalla");
-				System.out.println(ipString);
-				System.out.println(idString);
 				carddao.change_ip(ipString, idString);
 			}
 		}
-
+		
+		form = request.getParameter("start_ip_form");
+		if (form != null ) {
+			String idString = request.getParameter("start_ip_id");
+			String statuString = request.getParameter("status_id");
+			carddao.set_card_status(idString,statuString);
+		}
 		
 		ArrayList<Card> card_list = carddao.getArrayList_card();
 		for (int i = 0; i < card_list.size(); i++){

@@ -8,7 +8,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE html>	
 <html>
 <head>
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -16,19 +15,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="author" content="Łukasz Holeczek">
 <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
 <title>CoreUI Pro Bootstrap Admin Template</title>
+
 <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" />
 <link href="http://cdn.bootcss.com/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
 <link href="https://cdn.bootcss.com/flat-ui/2.3.0/css/flat-ui.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
-<link href="vendors/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
-<link href="vendors/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
-<link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-<link href="vendors/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
 
-<link href="css/style.css" rel="stylesheet">
-<link href="vendors/pace-progress/css/pace.min.css" rel="stylesheet">
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+
 <script>
+
+	function updatModal(ip,id){/*点击修改按钮，给模态框加载信息并且弹出模态框*/
+		$('#card_id').val(id);
+		$('#ip').val(ip);
+		$('#myModal').modal('show')
+	}
+
+	function set_card_status(start_ip_id, status){/*点击修改按钮，给模态框加载信息并且弹出模态框*/
+		var form = document.getElementById("start_ip_form");
+		$('#start_ip_id').val(start_ip_id);
+		$('#status_id').val(status)
+		form.submit();
+	}
+
     (function(i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
       i[r] = i[r] || function() {
@@ -42,15 +49,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     ga('create', 'UA-118965717-1', 'auto');
     ga('send', 'pageview');
     </script>
-   <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
    <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-   
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script>
+
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
 </head>
 <body class="" width="100%" height="100%" marginwidth="0" marginheight="0">
+ <form action="servlet/cardServlet" id="start_ip_form" class="form-horizontal" role="form">
+    <input type="hidden" id="operator" name="operator" class="form-control well" value="mobile"/>
+ 	<input type="hidden" id="start_ip_form" name="start_ip_form" class="form-control well" value="start_ip_form"/>
+    <input type="hidden" id="start_ip_id" name="start_ip_id" class="form-control well" value=""/>
+    <input type="hidden" id="status_id" name="status_id" class="form-control well" value=""/>
+ </form>
  <div style="width:100%;position:absolute z-index:999; top:0;">
   <ol class="breadcrumb">
    <li class="breadcrumb-item">Home</li>
@@ -62,11 +73,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="btn-group" role="group" aria-label="Button group">
      <a class="btn" href="#">
       <i class="icon-speech"></i>
-     </a>
-     <a class="btn" href="./">
-      <i class="icon-graph"></i> &nbsp;Dashboard</a>
-     <a class="btn" href="#">
-      <i class="icon-settings"></i> &nbsp;Settings
      </a>
     </div>
    </li>
@@ -85,16 +91,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <table class="table table-responsive-sm table-striped">
            <thead>
             <tr>
-             <th>接入号码</th>
-             <th>卡号</th>
              <th>ICCID</th>
-             <th>IMSI</th>
-             <th>status</th>
-             <th>tag</th>
-             <th>start_time</th>
-             <th>flow_used</th>
-             <th>flow_total</th>
-             <th> &nbsp;  &nbsp;操作</th>
+             <th>IP</th>
+             <th>我方卡号</th>
+             <th>接入号码</th>
+             <th>二级用户</th>
+             <th>域名</th>
+             <th>状态</th>
+             <th>&nbsp;&nbsp;操作</th>
             </tr>
            </thead>
            <tbody>
@@ -104,21 +108,50 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            			if( card_list.get(i).getOperatorString().equals("移动") ) {
            %>
             <tr>
-             <td><%= card_list.get(i).getNumberString() %></td>
-             <td><%= card_list.get(i).getCard_idString() %></td>
              <td><%= card_list.get(i).getICCID() %></td>
-             <td><%= card_list.get(i).getIMSI() %></td>
-             <td><%= card_list.get(i).getStatusInteger() %></td>
-             <td><%= card_list.get(i).getTagString() %></td>
-             <td><%= card_list.get(i).getStart_timeString() %></td>
-			 <td><%= card_list.get(i).getFlow_usedFloat() %></td>
-			 <td><%= card_list.get(i).getFlow_totalFloat() %></td>
+             <td><%= card_list.get(i).getIpString() %></td>
+             <td><%= card_list.get(i).getCard_idString() %></td>
+             <td><%= card_list.get(i).getNumberString() %></td>
+             <td><%= card_list.get(i).getOwnerString() %></td>
+			 <td><%= card_list.get(i).getDomainString() %></td>
+			<% switch(card_list.get(i).getStatusInteger()){
+			   case 1:%> <td>未激活</td> <% break;
+			   case 2:%> <td>停机保号</td> <% break;
+			   case 3:%> <td>在用</td> <% break;
+			   case 4:%> <td>欠费停机</td> <% break;
+			   case 5:%> <td>拆机</td> <% break;
+			}
+			 %>
 			 <td>
-			  <div class=" dropdown d-md-down-none ">
- 				<a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">操作</a>
-  				<div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
-  				 <a class="dropdown-item" href="#"><i class="icon-user-follow text-success"></i> New user registered</a>
- 				</div>
+			  <div class="dropdown">
+               <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">操作
+                <span class="caret"></span>
+               </button>
+               <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation">
+                 <a role="menuitem" tabindex="-1" href="#"> 详情</a>
+                </li>
+                <li role="presentation">
+                 <a role="menuitem" tabindex="-1"  onclick="updatModal(<%=card_list.get(i).getIpString()%>,<%=card_list.get(i).getIdInteger()%>)"> 修改IP</a>
+                </li>
+                <li role="presentation">
+                 <a role="menuitem" tabindex="-1"  onclick="updatModal()"> 设置标签</a>
+                </li>
+                <li role="presentation">
+                 <a role="menuitem" tabindex="-1"  onclick="set_card_status(<%=card_list.get(i).getIdInteger()%>,'2')"> 停机保号</a>
+                </li>
+                <li role="presentation">
+                 <a role="menuitem" tabindex="-1"  onclick="set_card_status(<%=card_list.get(i).getIdInteger()%>,'3')"> 启用</a>
+                </li>
+                <li role="presentation">
+                 <a role="menuitem" tabindex="-1"  onclick="set_card_status(<%=card_list.get(i).getIdInteger()%>,'4')"> 欠费停机</a>
+                </li>
+                <li role="presentation">
+                 <a role="menuitem" tabindex="-1"  onclick="set_card_status(<%=card_list.get(i).getIdInteger()%>,'5')"> 拆机</a>
+                </li>
+                </li>
+               </ul>
+              </div>
 			  </div>
 			 </td>
             </tr>
@@ -135,6 +168,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
    </div>
   </div>
+ </div>
+ <div class="container">
+    <!--  定义模态框触发器，此处为按钮触发  -->
+  <form method="post" action="servlet/cardServlet?operator=mobile" class="form-horizontal" role="form" id="myForm" onsubmit="return ">
+   <div class="modal fade" id="myModal"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+     <div class="modal-content">
+      <div class="btn-info modal-header">
+       <button type="button" class="close" data-dismiss="modal">&times;</button>
+       <h4>修改IP</h4>
+      </div>
+      <div class="modal-body">
+       <form class="form-horizontal" role="form">
+        <div class="form-group">
+         <label for="uname" class="col-sm-2 control-label">IP</label>
+         <input type="hidden" id="form" name="form" class="form-control well" value="change_ip"/>
+         <input type="hidden" id="card_id" name="card_id" class="form-control well"/>
+         <div class="col-sm-9">
+          <input type="text" id="ip" name="ip" class="form-control well" placeholder="请输入IP"/>
+         </div>
+        </div>
+       </form>
+      </div>
+      <div class="modal-footer">
+       <button type="submit" class="btn btn-info">确定</button>
+       <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      </div>
+     </div><!-- /.modal-content -->
+    </div>
+   </div> <!-- /.modal -->
+  </form>
  </div>
 </body>
 </html>

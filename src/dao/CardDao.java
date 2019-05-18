@@ -124,14 +124,59 @@ public class CardDao {
 		return true;
 	}
 	
+	public boolean set_card_status(String idString, String statuString) {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;//数据集
+		int flag = 0;
+		int status = Integer.parseInt(statuString);
+		try {
+			//连接数据库
+			conn = DBHelper.getConnection();
+			//数据库执行语句,其中?为传进来的参数要替代的位置
+			String sql = "update card set status=? where id=? ";
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(2, idString.toUpperCase());
+			stmt.setInt(1, status);
+			
+			stmt.execute();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally{
+			//释放数据集对象
+			if (rs!=null) {
+				try {
+					rs.close();
+					rs = null;
+				} catch (Exception e2) {
+					// TODO: handle exception
+					e2.printStackTrace();
+				}				
+			}
+			//释放语句对象
+			if (stmt!=null) {
+				try {
+					stmt.close();
+					stmt = null;
+				} catch (Exception e2) {
+					// TODO: handle exception
+					e2.printStackTrace();
+				}				
+			}
+		}
+		return true;
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		CardDao carddao = new CardDao();
-		carddao.change_ip("2224423","1");
+		carddao.set_card_status("1","5");
 		ArrayList<Card> card_list = carddao.getArrayList_card();
 		System.out.print(card_list.size());
 		for(int i = 0; i < card_list.size(); i++) {
-			System.out.println(card_list.get(i).getIpString());
+			System.out.println(card_list.get(i).getStatusInteger());
 		}
  
 	}

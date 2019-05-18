@@ -29,6 +29,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$('#myModal').modal('show')
 	}
 
+	function set_card_status(start_ip_id, status){/*点击修改按钮，给模态框加载信息并且弹出模态框*/
+		var form = document.getElementById("start_ip_form");
+		$('#start_ip_id').val(start_ip_id);
+		$('#status_id').val(status)
+		form.submit();
+	}
+
     (function(i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
       i[r] = i[r] || function() {
@@ -49,6 +56,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 </head>
 <body class="" width="100%" height="100%" marginwidth="0" marginheight="0">
+ <form action="servlet/cardServlet" id="start_ip_form" class="form-horizontal" role="form">
+    <input type="hidden" id="operator" name="operator" class="form-control well" value="tele"/>
+ 	<input type="hidden" id="start_ip_form" name="start_ip_form" class="form-control well" value="start_ip_form"/>
+    <input type="hidden" id="start_ip_id" name="start_ip_id" class="form-control well" value=""/>
+    <input type="hidden" id="status_id" name="status_id" class="form-control well" value=""/>
+ </form>
  <div style="width:100%;position:absolute z-index:999; top:0;">
   <ol class="breadcrumb">
    <li class="breadcrumb-item">Home</li>
@@ -125,10 +138,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  <a role="menuitem" tabindex="-1"  onclick="updatModal()"> 设置标签</a>
                 </li>
                 <li role="presentation">
-                 <a role="menuitem" tabindex="-1"  onclick="updatModal()"> 启用</a>
+                 <a role="menuitem" tabindex="-1"  onclick="set_card_status(<%=card_list.get(i).getIdInteger()%>,'2')"> 停机保号</a>
                 </li>
                 <li role="presentation">
-                 <a role="menuitem" tabindex="-1"  onclick="updatModal()"> 拆机</a>
+                 <a role="menuitem" tabindex="-1"  onclick="set_card_status(<%=card_list.get(i).getIdInteger()%>,'3')"> 启用</a>
+                </li>
+                <li role="presentation">
+                 <a role="menuitem" tabindex="-1"  onclick="set_card_status(<%=card_list.get(i).getIdInteger()%>,'4')"> 欠费停机</a>
+                </li>
+                <li role="presentation">
+                 <a role="menuitem" tabindex="-1"  onclick="set_card_status(<%=card_list.get(i).getIdInteger()%>,'5')"> 拆机</a>
                 </li>
                 </li>
                </ul>
