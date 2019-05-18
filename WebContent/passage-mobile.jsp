@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%@page import="entity.Card"%>
+<%@page import="entity.Passage"%>
 
 <!DOCTYPE html>	
 <html>
@@ -74,43 +74,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <div class="col-lg-12">
         <div class="card">
          <div class="card-header">
-          <i class="fa fa-align-justify"></i> 电信通道管理
+          <i class="fa fa-align-justify"></i> 移动通道管理
          </div>
          <div class="card-body">
           <table class="table table-responsive-sm table-striped">
            <thead>
             <tr>
-             <th>接入号码</th>
-             <th>卡号</th>
-             <th>ICCID</th>
-             <th>IMSI</th>
-             <th>status</th>
-             <th>tag</th>
-             <th>start_time</th>
-             <th>flow_used</th>
-             <th>flow_total</th>
+             <th>名字</th>
+             <th>运营商</th>
+             <th>用户</th>
+             <th>状态</th>
+             <th>余额</th>
+             <th>地址</th>
              <th>操作</th>
             </tr>
            </thead>
            <tbody>
            <%
-           		ArrayList<Card> card_list = (ArrayList<Card>) session.getAttribute("card_list");
-           		for (int i = 0; i < card_list.size(); i++){
-           			if( card_list.get(i).getOperatorString().equals("移动") ) {
+           		ArrayList<Passage> passage_list = (ArrayList<Passage>) request.getAttribute("passage_list");
+           		for (int i = 0; i < passage_list.size(); i++){
+           			if( passage_list.get(i).getOperatorString().equals("移动") ) {
            %>
             <tr>
-             <td><%= card_list.get(i).getNumberString() %></td>
-             <td><%= card_list.get(i).getCard_idString() %></td>
-             <td><%= card_list.get(i).getICCID() %></td>
-             <td><%= card_list.get(i).getIMSI() %></td>
-             <td><%= card_list.get(i).getStatusInteger() %></td>
-             <td><%= card_list.get(i).getTagString() %></td>
-             <td><%= card_list.get(i).getStart_timeString() %></td>
-			 <td><%= card_list.get(i).getFlow_usedFloat() %></td>
-			 <td><%= card_list.get(i).getFlow_totalFloat() %></td>
-			 <td><a href="#">操作</a></td>
+             <td><%= passage_list.get(i).getNameString() %></td>
+             <td><%= passage_list.get(i).getOperatorString() %></td>
+             <td><%= passage_list.get(i).getUser_nameString() %></td>
+             <td>正常</td>
+             <td><%= passage_list.get(i).getCoverageString() %></td>
+             <td><%= passage_list.get(i).getAddressString() %></td>
+             <td><a href="">操作</a></td>
             </tr>
-            <% 		}
+            <% 		} 
             	}
             %>
            </tbody>

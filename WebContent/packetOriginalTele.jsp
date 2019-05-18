@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%@page import="entity.Card"%>
+<%@page import="entity.PacketOriginal"%>
 
 <!DOCTYPE html>	
 <html>
@@ -74,43 +74,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <div class="col-lg-12">
         <div class="card">
          <div class="card-header">
-          <i class="fa fa-align-justify"></i> 电信通道管理
+          <i class="fa fa-align-justify"></i> 电信原始套餐
          </div>
          <div class="card-body">
           <table class="table table-responsive-sm table-striped">
            <thead>
             <tr>
-             <th>接入号码</th>
-             <th>卡号</th>
-             <th>ICCID</th>
-             <th>IMSI</th>
-             <th>status</th>
-             <th>tag</th>
-             <th>start_time</th>
-             <th>flow_used</th>
-             <th>flow_total</th>
+             <th>套餐名称</th>
+             <th>类型</th>
+             <th>成本</th>
+             <th>通道</th>
+             <th>有效期</th>
+             <th>规格</th>
+             <th>有效期内用量</th>
+             <th>激活方式</th>
              <th>操作</th>
             </tr>
            </thead>
            <tbody>
            <%
-           		ArrayList<Card> card_list = (ArrayList<Card>) session.getAttribute("card_list");
-           		for (int i = 0; i < card_list.size(); i++){
-           			if( card_list.get(i).getOperatorString().equals("移动") ) {
+           		ArrayList<PacketOriginal> packet_original_list = (ArrayList<PacketOriginal>) request.getAttribute("packet_original_list");
+           		for (int i = 0; i < packet_original_list.size(); i++){
+           			if( packet_original_list.get(i).getOperatorString().equals("电信") ) {
            %>
             <tr>
-             <td><%= card_list.get(i).getNumberString() %></td>
-             <td><%= card_list.get(i).getCard_idString() %></td>
-             <td><%= card_list.get(i).getICCID() %></td>
-             <td><%= card_list.get(i).getIMSI() %></td>
-             <td><%= card_list.get(i).getStatusInteger() %></td>
-             <td><%= card_list.get(i).getTagString() %></td>
-             <td><%= card_list.get(i).getStart_timeString() %></td>
-			 <td><%= card_list.get(i).getFlow_usedFloat() %></td>
-			 <td><%= card_list.get(i).getFlow_totalFloat() %></td>
-			 <td><a href="#">操作</a></td>
+             <td><%= packet_original_list.get(i).getNameString() %></td>
+             <td><%= packet_original_list.get(i).getKindString() %></td>
+             <td><%= packet_original_list.get(i).getCodeString() %></td>
+             <td><%= packet_original_list.get(i).getAisleString() %></td>
+             <td><%= packet_original_list.get(i).getValidity_periodInteger() %></td>
+             <td><%= packet_original_list.get(i).getValidity_flowInteger() %></td>
+             <td><%= packet_original_list.get(i).getFormatString() %></td>
+             <td><%= packet_original_list.get(i).getEffective_wayString() %></td>
+             <td><a herf=""> 操作 </a></td>
             </tr>
-            <% 		}
+            <% 		} 
             	}
             %>
            </tbody>

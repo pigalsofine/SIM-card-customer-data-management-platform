@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%@page import="entity.Card"%>
+<%@page import="entity.Customer, entity.Card"%>
 
 <!DOCTYPE html>	
 <html>
@@ -74,45 +74,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <div class="col-lg-12">
         <div class="card">
          <div class="card-header">
-          <i class="fa fa-align-justify"></i> 电信通道管理
+          <i class="fa fa-align-justify"></i> 客户管理
          </div>
          <div class="card-body">
           <table class="table table-responsive-sm table-striped">
            <thead>
             <tr>
-             <th>接入号码</th>
-             <th>卡号</th>
-             <th>ICCID</th>
-             <th>IMSI</th>
-             <th>status</th>
-             <th>tag</th>
-             <th>start_time</th>
-             <th>flow_used</th>
-             <th>flow_total</th>
+             <th>用户账户</th>
+             <th>姓名</th>
+             <th>状态</th>
+             <th>联系电话</th>
+             <th>card id</th>
+             <th>余额</th>
+             <th>总流量</th>
+             <th>使用流量</th>
              <th>操作</th>
             </tr>
            </thead>
            <tbody>
            <%
-           		ArrayList<Card> card_list = (ArrayList<Card>) session.getAttribute("card_list");
-           		for (int i = 0; i < card_list.size(); i++){
-           			if( card_list.get(i).getOperatorString().equals("移动") ) {
-           %>
-            <tr>
-             <td><%= card_list.get(i).getNumberString() %></td>
-             <td><%= card_list.get(i).getCard_idString() %></td>
-             <td><%= card_list.get(i).getICCID() %></td>
-             <td><%= card_list.get(i).getIMSI() %></td>
-             <td><%= card_list.get(i).getStatusInteger() %></td>
-             <td><%= card_list.get(i).getTagString() %></td>
-             <td><%= card_list.get(i).getStart_timeString() %></td>
-			 <td><%= card_list.get(i).getFlow_usedFloat() %></td>
-			 <td><%= card_list.get(i).getFlow_totalFloat() %></td>
-			 <td><a href="#">操作</a></td>
-            </tr>
-            <% 		}
+   				
+
+   		
+           		Map<Customer, Card> map_C_C = (Map<Customer, Card>) request.getAttribute("map_C_C");
+				for (Map.Entry<Customer, Card> entry : map_C_C.entrySet()) {
+   			%>
+   			<tr>
+   			 <th><%= entry.getKey().getAccountString() %></th>
+   			 <th><%= entry.getValue().getNumberString() %></th>
+   			 <th>高</th>
+   			 <th><%= entry.getKey().getPhoneString() %></th>
+   			 <th><%= entry.getValue().getCard_idString() %></th>
+   			 <th><%= entry.getValue().getRechargeFloat() %></th>
+   			 <th><%= entry.getValue().getFlow_totalFloat() %></th>
+   			 <th><%= entry.getValue().getFlow_usedFloat() %></th>
+   			 <th><a href="#"> 操作 </a></th>
+   			<%
+        
             	}
             %>
+            </tr>
            </tbody>
           </table>
          </div>

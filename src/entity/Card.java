@@ -3,6 +3,13 @@ package entity;
 import java.security.Timestamp;
 
 public class Card {
+	private Integer idInteger;
+	public Integer getIdInteger() {
+		return idInteger;
+	}
+	public void setIdInteger(Integer idInteger) {
+		this.idInteger = idInteger;
+	}
 	private String numberString;
 	private String card_idString;
 	private String ICCID;

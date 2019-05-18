@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%@page import="entity.Card"%>
+<%@page import="entity.Order"%>
 
 <!DOCTYPE html>	
 <html>
@@ -74,43 +74,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <div class="col-lg-12">
         <div class="card">
          <div class="card-header">
-          <i class="fa fa-align-justify"></i> 电信通道管理
+          <i class="fa fa-align-justify"></i> 订单管理
          </div>
          <div class="card-body">
           <table class="table table-responsive-sm table-striped">
            <thead>
             <tr>
-             <th>接入号码</th>
+             <th>客户</th>
              <th>卡号</th>
-             <th>ICCID</th>
-             <th>IMSI</th>
-             <th>status</th>
-             <th>tag</th>
-             <th>start_time</th>
-             <th>flow_used</th>
-             <th>flow_total</th>
+             <th>套餐</th>
+             <th>余额</th>
+             <th>提交时间</th>
+             <th>处理时间</th>
              <th>操作</th>
             </tr>
            </thead>
            <tbody>
            <%
-           		ArrayList<Card> card_list = (ArrayList<Card>) session.getAttribute("card_list");
-           		for (int i = 0; i < card_list.size(); i++){
-           			if( card_list.get(i).getOperatorString().equals("移动") ) {
+   				ArrayList<Order> order_list_packet = (ArrayList<Order>) request.getAttribute("order_list_packet");
+           		for (int i = 0; i < order_list_packet.size(); i++){
            %>
             <tr>
-             <td><%= card_list.get(i).getNumberString() %></td>
-             <td><%= card_list.get(i).getCard_idString() %></td>
-             <td><%= card_list.get(i).getICCID() %></td>
-             <td><%= card_list.get(i).getIMSI() %></td>
-             <td><%= card_list.get(i).getStatusInteger() %></td>
-             <td><%= card_list.get(i).getTagString() %></td>
-             <td><%= card_list.get(i).getStart_timeString() %></td>
-			 <td><%= card_list.get(i).getFlow_usedFloat() %></td>
-			 <td><%= card_list.get(i).getFlow_totalFloat() %></td>
+             <td><%= order_list_packet.get(i).getCustomerString() %></td>
+			 <td><%= order_list_packet.get(i).getCard_idString() %></td>
+			 <td><%= order_list_packet.get(i).getPackageString() %></td>
+			 <td><%= order_list_packet.get(i).getAmountFloat() %></td>
+			 <td><%= order_list_packet.get(i).getSubmit_timeString() %></td>
+			 <td><%= order_list_packet.get(i).getDeal_timeString() %></td>
 			 <td><a href="#">操作</a></td>
             </tr>
-            <% 		}
+            <% 
             	}
             %>
            </tbody>

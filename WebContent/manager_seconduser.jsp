@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%@page import="entity.Card"%>
+<%@page import="entity.Company"%>
 
 <!DOCTYPE html>	
 <html>
@@ -74,45 +74,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <div class="col-lg-12">
         <div class="card">
          <div class="card-header">
-          <i class="fa fa-align-justify"></i> 电信通道管理
+          <i class="fa fa-align-justify"></i> 分销商列表
          </div>
          <div class="card-body">
           <table class="table table-responsive-sm table-striped">
            <thead>
             <tr>
-             <th>接入号码</th>
-             <th>卡号</th>
-             <th>ICCID</th>
-             <th>IMSI</th>
-             <th>status</th>
-             <th>tag</th>
-             <th>start_time</th>
-             <th>flow_used</th>
-             <th>flow_total</th>
+             <th>账户</th>
+             <th>所属业务员</th>
+             <th>姓名</th>
+             <th>联系电话</th>
+             <th>支付宝户名</th>
+             <th>支付宝账号</th>
+             <th>状态</th>
+             <th>费率</th>
              <th>操作</th>
+             <th>创建时间</th>
             </tr>
            </thead>
            <tbody>
            <%
-           		ArrayList<Card> card_list = (ArrayList<Card>) session.getAttribute("card_list");
-           		for (int i = 0; i < card_list.size(); i++){
-           			if( card_list.get(i).getOperatorString().equals("移动") ) {
+          		ArrayList<Company> company_list = (ArrayList<Company>) request.getAttribute("company_list");
+		   		for(int i = 0; i < company_list.size(); i++) {
            %>
             <tr>
-             <td><%= card_list.get(i).getNumberString() %></td>
-             <td><%= card_list.get(i).getCard_idString() %></td>
-             <td><%= card_list.get(i).getICCID() %></td>
-             <td><%= card_list.get(i).getIMSI() %></td>
-             <td><%= card_list.get(i).getStatusInteger() %></td>
-             <td><%= card_list.get(i).getTagString() %></td>
-             <td><%= card_list.get(i).getStart_timeString() %></td>
-			 <td><%= card_list.get(i).getFlow_usedFloat() %></td>
-			 <td><%= card_list.get(i).getFlow_totalFloat() %></td>
-			 <td><a href="#">操作</a></td>
+             <td><%= company_list.get(i).getNameString() %></td>
+             <td><%= company_list.get(i).getSalesman_nameString() %></td>
+             <td><%= company_list.get(i).getNameString() %></td>
+             <td><%= company_list.get(i).getPhoneString() %></td>
+             <td><%= company_list.get(i).getAlipy_nameString() %></td>
+             <td><%= company_list.get(i).getAlipay_accountString() %></td>
+             <td> 正常 </td>
+             <td><%= company_list.get(i).getRateFloat() %></td>
+             <td><a href="">操作</a></td>
+             <td><%= company_list.get(i).getRateFloat() %></td>
             </tr>
-            <% 		}
-            	}
-            %>
+            <% } %>
            </tbody>
           </table>
          </div>
